@@ -202,20 +202,29 @@ form.addEventListener('submit', event => {
     // Parameters can also be any name, stop forgetting
 function validateInputs (thetwoInputs) {
 
-   
     // 4. running the function FOR EACH input (individually)
     thetwoInputs.forEach(input => {
 
         // 5. Add the event listener
         //  listening for a blur on (each) input
         input.addEventListener(`blur`, event => {
+            // 6. Write the conditions (if statement)
+
             // if the value of an input is NOT false/empty, add .error
-            // you have to do 'if not empty' first
-            if (input.value != emptyValue) {
-                input.classList.remove(`error`);
-            } else { //if it IS empty, add the .error
-                input.classList.add(`error`)
+            // if (event.target.value != emptyValue) {
+            //     event.target.classList.remove(`error`);
+            // } else { //if it IS empty, add the .error
+            //     event.target.classList.add(`error`)
+            // }
+            // console.log(`The value of that was ${event.target.value}`)
+
+
+            if (event.target.value == emptyValue) {
+                event.target.classList.add(`error`);
+            } else { 
+                event.target.classList.remove(`error`)
             }
+            console.log(`The value of that was ${event.target.value}`)
         })
     })
 }
